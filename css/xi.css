@@ -15,7 +15,15 @@ h3, h4, h5, h6 {
 	font-weight: 300;
 }
 
+header menu a {
+	font-size: 17px;
+	font-weight: bold;
+}
+
 /* Layout */
 
-body {
+header menu {
+	line-height: 30px;
+	padding: 0;
+	margin: 27px 0 0 0;
 }
