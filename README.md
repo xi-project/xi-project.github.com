@@ -1,4 +1,4 @@
-This repository hosts the Xi project home page. It's intended as a one page preview 
+This repository hosts the Xi project home page. The home page is intended as a one page preview to what the project entails, and can't cover _everything_ (eg. all the repositories involved).
 
 # Planned contents
 
@@ -17,6 +17,7 @@ This repository hosts the Xi project home page. It's intended as a one page prev
         - git tagging
         - Component maintainers
         - Contributing to a component not maintained by you
+    - Coding standards
     - Github access management guidelines
 - Licensing
     - The generic Xi license
