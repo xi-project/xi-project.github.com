@@ -20,6 +20,14 @@ header menu a {
 	font-weight: bold;
 }
 
+section header .subheader {
+	margin-top: 0;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	text-decoration: none;
+}
+
 /* Layout */
 
 header menu {
