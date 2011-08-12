@@ -1,26 +1,32 @@
-This repository hosts the Xi project homepage.
+This repository hosts the Xi project home page. It's intended as a one page preview 
 
 # Planned contents
 
 - Introduction to Xi
     - Ideology
     - Loose coupling between components
-- Project contribution guidelines
-    - Xi project and Xi components
-    - How to contribute a repository
-    - Repository structure outline
-    - Repository maintainers
-    - Contributing to a repository not maintained by you
-    - Github access management guidelines
-- Notable repositories and use cases
+- Xi project use cases
+    - How can we help you with your daily workflow?
+- Notable repositories and specific use cases
 - Notable planned repositories
+- Project guidelines
+    - Xi project
+        - the project, components, repositories and forks
+    - How to contribute
+        - Component structure outline
+        - git tagging
+        - Component maintainers
+        - Contributing to a component not maintained by you
+    - Github access management guidelines
 - Licensing
+    - The generic Xi license
     - Why BSD v3?
     - What does the generic Xi license mean? What is the intention behind it?
+- Sponsors etc.
 
 # Colophon
 
-- [HTML5 Boilerplate v2]()
-- [Skeleton framework]()
-- [Open Sans (Google Web Font)]()
-- A noise background generator (jQuery noise?)
+- [HTML5 Boilerplate v2](http://html5boilerplate.com)
+- [Skeleton framework](http://getskeleton.com)
+- [Open Sans (Google Web Font)](http://www.google.com/webfonts/specimen/Open+Sans)
+- [jQuery Noisy](https://github.com/DanielRapp/Noisy)
