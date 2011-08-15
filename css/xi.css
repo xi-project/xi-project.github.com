@@ -15,7 +15,7 @@ h3, h4, h5, h6 {
 	font-weight: 300;
 }
 
-header menu a {
+header nav a {
 	font-size: 17px;
 	font-weight: bold;
 }
@@ -28,10 +28,28 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	text-decoration: none;
 }
 
+section header nav {
+	list-style: decimal;
+}
+
+section header nav a {
+	font-size: 14px;
+	line-height: 21px;
+}
+
+dl dt {
+	font-weight: bold;
+}
+
 /* Layout */
 
-header menu {
+header nav {
 	line-height: 30px;
 	padding: 0;
 	margin: 27px 0 0 0;
+}
+
+nav li {
+	/* Prevent nav elements from flowing together when browser is resized to minimum */
+	padding-right: 10px;
 }

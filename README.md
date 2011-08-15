@@ -21,7 +21,7 @@ This repository hosts the Xi project home page. The home page is intended as a o
     - Github access management guidelines
 - Licensing
     - The generic Xi license
-    - Why BSD v3?
+    - Why New BSD?
     - What does the generic Xi license mean? What is the intention behind it?
 - Sponsors etc.
 
