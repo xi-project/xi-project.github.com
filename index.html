@@ -41,7 +41,9 @@
             </div>
         </div>
 	</header>
+	
     <hr class="remove-bottom" />
+    
 	<div id="main" role="main">
 	    <section class="row introduction">
 	        <div class="sixteen columns">
@@ -113,14 +115,19 @@
 	    <section class="row contributing">
 	        <header class="one-third column">
     	        <h2 id="section-contributing">Contributing</h2>
-    	        <h4 class="subheader">It's easy to get involved</h4>
+    	        <h4 class="subheader">Notes to get you started</h4>
+    	        <nav>
+    	            <li><a href="#section-contributing-overview">Project overview</a></li>
+    	            <li><a href="#section-contributing-guidelines">Guidelines</a></li>
+    	            <li><a href="#section-contributing-standards">Standards</a></li>
+	            </nav>
 	        </header>
 	        <div class="two-thirds column">
-	            <h3>Project overview</h3>
+	            <h3 id="section-contributing-overview">Project overview</h3>
 	            <p>The Xi project contains multiple components, represented as repositories under the <a href="http://github.com/xi-project">xi-project organization</a> in Github. Each of these components has a designated maintainer, whose job is to upkeep quality and cohesion within the component. (In practice, this boils down to accepting pull requests.)</p>
 	            <p>For contributing to an existing project, you should create a fork of a component and send your updates as pull requests on Github. If you want to contribute an entirely new component, you must assign the repository's ownership to the <em>xi-project</em> account, in which case the repository will be shown in the organization's Github page. You, of course, will be implicitly designated as the component's maintainer.</a>
 	            
-	            <h3>Guidelines</h3>
+	            <h3 id="section-contributing-guidelines">Guidelines</h3>
 	            <h4 class="subheader">Directory layout</h4>
 	            <p>Components should follow a predictable structure for both conceptual simplicity and tool support (see eg. <a href="#section-roadmap-package-management">package management</a>).</p>
 	            <dl>
@@ -137,22 +144,35 @@
 	            </dl>
 	            
 	            <h4 class="subheader">Versioning</h4>
-	            <p>TODO: refer to semver.org</p>
+	            <p>Tag release versions using git tags. Use <a href="http://semver.org">semantic versioning</a>:</p>
+	            <ul>
+	                <li><em><q>A normal version number MUST take the form X.Y.Z where X, Y, and Z are integers. X is the major version, Y is the minor version, and Z is the patch version. Each element MUST increase numerically.</q></em></li>
+	                <li>Bump the <em>patch version</em> if you apply small tweaks or include small additional features.</li>
+	                <li>Bump the <em>minor version</em> if you make changes that break backwards compatibility.</li>
+	                <li>Bump the <em>major version</em> if you make significant refactorings; however, if you're in major version 0, bumping the minor version should be sufficient.</li>
+	            </ul>
+	            <p>For working with Git, we recommend the <a href="http://nvie.com/posts/a-successful-git-branching-model/">Git branching model</a>, implemented by <a href="https://github.com/nvie/gitflow">git-flow</a> for your convenience.</p>
 	            
-	            <h3>Standards</h3>
+	            <h3 id="section-contributing-standards">Standards</h3>
 	            
 	            <h4 class="subheader"></h4>
 	            <p></p>
 	            
 	            <h4 class="subheader">Coding standards</h4>
+	            <p>We're not making our own - there are <a href="http://symfony.com/doc/2.0/contributing/code/standards.html">fine</a> <a href="http://framework.zend.com/wiki/display/ZFDEV2/ZF+2.0+Coding+Standards+Addendums">standards</a> readily available. There's just a few points to make explicit.</p>
 	            <ul>
-	                <li>Use PHP 5.3 namespaces instead of pseudo-namespaces.</li>
+	                <li>Use <a href="http://weierophinney.net/matthew/archives/254-Why-PHP-Namespaces-Matter.html">PHP 5.3 namespaces</a> instead of <a href="http://framework.zend.com/manual/en/coding-standard.naming-conventions.html">pseudo-namespaces</a>.</li>
+	                <li>Organize your classes under a single component-level namespace. This namespace should be the same as your component's name, eg. the classes in <a href="http://github.com/xi-project/xi-collections">xi-collections</a> reside under <code>Xi\Collections</code>.</li>
+	                <li>For exceptions, <a href="http://framework.zend.com/wiki/display/ZFDEV2/Proposal+for+Exceptions+in+ZF2">create a component level marker interface</a>, then create concrete classes that implement the marker interface and preferably extend a <a href="http://www.php.net/manual/en/spl.exceptions.php">semantic PHP Exception type</a> instead of the plain <code>Exception</code> class.</li>
+	                <li>Do not define global functions and depend on them internally; the choice of which global functions to define should be for the component's user to make.</li>
                 </ul>
 	            
 	            <h4 class="subheader">Architectural standards</h4>
 	            <ul>
-	                <li>Document your core design decisions. Why was the component structured the way it is? What were your main considerations?</li>
-	                <li>Do not define global functions and depend on them internally; the choice of which global functions to define should be for the component's user to make.</li>
+	                <li>Document at least your core architectural design decisions. Why was the component structured the way it is? What were your main considerations? Inability to understand your design motivations tends to induce a high WTF factor.</li>
+	                <li>Do not depend directly on externals if you can avoid it. Instead, provide a suitable abstraction for integration with the externality. This allows for a greater potential degree of generalization and reusability.</li>
+	                <li><em>Prefer TDD</em> (or derivatives) and high code path coverage to praying it will work. If you can't have high code path coverage, <em>have smoke tests</em> in the very least.</li>
+	                <li>Please <a href="http://www.artima.com/intv/dry.html">stay DRY</a>.</li>
 	            </ul>
             </div>
         </section>
@@ -179,16 +199,18 @@
 
                 <h3 id="section-licensing-who">Wait, what? Who are these guys?</h3>
                 <p>The Xi project is not a legal entity, but the license's copyright statement has to reference at least one. We'd like Xi to be a community driven effort and not rest on corporate entities, so we used our actual names. The license states: <em><q>"Copyright (c) 2011, Mikko Forsström, Mikko Hirvonen, Eevert Saukkokoski"</q></em>. These are the names of three guys currently or formerly of <em>Soprano Brain Alliance</em> with intent to improve the state of PHP.</p>
-                <p>The notation is merely symbolic; we represent the Xi project, and you aren't signing away anything you wouldn't expect of a New BSD license.</p>
+                <p>The notation is merely symbolic; we represent the Xi project, and you aren't signing away anything you wouldn't expect to with a New BSD license.</p>
                 <p>That said, software licensing is not a simple beast, and none of us are legal experts. If you think there's something wrong with out licensing terms, contact us so we can sort it out.</p>
             </div>
         </section>
 	</div>
+	
     <hr class="remove-bottom" />
+    
 	<footer class="row">
         <div class="one-third column author">
             <h4>Author</h4>
-            <p>I'm <a href="http://www.linkedin.com/profile/view?id=108734362">Eevert Saukkokoski</a>, and I work as a web software architect with the wonderful people at Soprano Brain Alliance. On <a href="http://twitter.com/Ezku">Twitter</a> <a href="http://ezku.tumblr.com">et al.</a> I'm known as <em>Ezku</em>.</p>
+            <p>I'm <a href="http://www.linkedin.com/profile/view?id=108734362">Eevert Saukkokoski</a>, and I work as a web software architect with the wonderful people at Soprano Brain Alliance. On <a href="http://github.com/Ezku">Github</a>, <a href="http://twitter.com/Ezku">Twitter</a> <a href="http://ezku.tumblr.com">et al.</a> I'm known as <em>Ezku</em>.</p>
             <p>For details on individual component authors, see the corresponding Github repositories.</p>
         </div>
 	    <div class="one-third column sponsor">

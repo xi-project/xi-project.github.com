@@ -41,6 +41,13 @@ dl dt {
 	font-weight: bold;
 }
 
+code {
+	font-size: 0.9em;
+	line-height: 1em;
+	background: #EFEFEF;
+	padding: 0 0.2em;
+}
+
 /* Layout */
 
 header nav {
