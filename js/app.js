@@ -32,7 +32,7 @@ $(document).ready(function() {
 	$('body').noisy({
 	    'intensity' : 1, 
 	    'size' : 200, 
-	    'opacity' : 0.05, 
+	    'opacity' : 0.08, 
 	    'fallback' : '', 
 	    'monochrome' : false
 	}).css('background-color', '#FFF');
