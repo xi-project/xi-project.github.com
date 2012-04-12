@@ -1,0 +1,40 @@
+header, #main, footer {
+	text-align: center;
+}
+h1, h2 {
+	font-weight: 300;
+}
+h1 b, h2 b {
+	font-weight: 800;
+}
+h1 {
+	font-size: 92px;
+	line-height: 1em;
+	margin: 0.5em 0 14px 0;
+}
+h2 {
+	font-size: 50px;
+	line-height: 1em;
+	margin: 14px 0 0.5em 0;
+}
+h4 {
+	margin: 0.5em;
+}
+#main {
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	letter-spacing: -1px;
+	color: #777;
+}
+#main b {
+	color: #025D8C;
+}
+#main ul {
+	padding: 3em 0;
+	margin: 1em 0 1em;
+}
+#main li {
+	font-size: 3em;
+	line-height: 1.5em;
+}
+footer {
+}
