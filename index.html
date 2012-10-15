@@ -64,13 +64,13 @@ layout: default
 	        <div class="two-thirds column">
                 <h3><a href="http://github.com/xi-project/xi-collections">Collections</a></h3>
                 <p>Enhances your daily PHP workflow with a hearty dose of functional programming in the spirit of <a href="http://documentcloud.github.com/underscore/">Underscore.js</a>.</p>
+
+	            <h3><a href="http://github.com/xi-project/xi-filelib">Filelib</a></h3>
+	            <p>Filelib is a reusable file library component for PHP 5.3 applications.</p>
 	            
 	            <h3><a href="http://github.com/xi-project/xi-doctrine">Doctrine</a></h3>
 	            <p>Extends the core facilities of <a href="http://doctrine-project.org">Doctrine ORM</a>. Test fixture creation, a more robust internal API for repositories and query builders, and more!</p>
-	            
-	            <h3><a href="http://github.com/xi-project/xi-filelib">Filelib</a></h3>
-	            <p>Extracted from <a href="http://emerald-project.org">Emerald</a>, a small content management system built on <a href="http://framework.zend.com">Zend Framework</a>, Filelib provides an extensive array of features related to file upload management.</p>
-	            
+
 	            <h3><a href="http://github.com/xi-project/xi-test-selenium">Selenium2 WebDriver Server wrapper</a></h3>
 	            <p>Leverages <a href="http://code.google.com/p/selenium/">Selenium2</a> and the <a href="http://code.google.com/p/selenium/wiki/JsonWireProtocol">Json Wire Protocol</a> to make web testing easier. Also facilitates acceptance testing by having built-in screenshot capabilities. Build your documentation and run your acceptance tests in one step!</p>
 
@@ -87,9 +87,6 @@ layout: default
     	        <h4 class="subheader">What's in the horizon</h4>
 	        </header>
 	        <div class="two-thirds column">
-	            <h3 id="section-roadmap-package-management">Package Management</h3>
-	            <p>Managing a horde of dependencies in the form of git submodules is arduous and gets old fast. We aim to either build our own or find an existing PHP-based tool for taking care of this with a minimum of tedium, then standardize on that tool.</p>
-	            
 	            <h3>More solid documentation</h3>
 	            <p>We acknowledge getting started with most of our components isn't necessarily the easiest thing in the world. Even if the code is solid, users need and expect more. With components stemming mostly from internal development, getting documentation up to scratch is no trivial task, but we try.</p>
             </div>
@@ -113,8 +110,12 @@ layout: default
 	            <p>For contributing to an existing project, you should create a fork of a component and send your updates as pull requests on Github. If you want to contribute an entirely new component, you must assign the repository's ownership to the <em>xi-project</em> account, in which case the repository will be shown in the organization's Github page. You, of course, will be implicitly designated as the component's maintainer.</p>
 	            
 	            <h3 id="section-contributing-guidelines">Guidelines</h3>
+
+                <h4 class="subheader">Tool support</h4>
+                <p>Components should use <a href="http://getcomposer.org">Composer</a> for autoloading and dependency management and <a href="http://travis-ci.org">Travis CI</a> for Continuous Integration.
 	            <h4 class="subheader">Directory layout</h4>
-	            <p>Components should follow a predictable structure for both conceptual simplicity and tool support (see eg. <a href="#section-roadmap-package-management">package management</a>).</p>
+
+	            <p>Components should follow a predictable structure.</p>
 	            <dl>
 	                <dt>/</dt>
 	                <dd>README and LICENSE files</dd>
@@ -124,8 +125,6 @@ layout: default
 	                
 	                <dt>/tests</dt>
 	                <dd>Test case classes and bootstraps, with a directory structure mirroring /library.</dd>
-	                <dt>/external</dt>
-	                <dd>Git submodules required by the component. Library directories within required components may be symlinked to the library directory.</dd>
 	            </dl>
 	            
 	            <h4 class="subheader">Versioning</h4>
@@ -141,9 +140,8 @@ layout: default
 	            <h3 id="section-contributing-standards">Standards</h3>
 	            
 	            <h4 class="subheader">Coding standards</h4>
-	            <p>We're not making our own - there are <a href="http://framework.zend.com/manual/en/coding-standard.html">fine</a> <a href="http://framework.zend.com/wiki/display/ZFDEV2/ZF+2.0+Coding+Standards+Addendums">and</a> <a href="http://symfony.com/doc/2.0/contributing/code/standards.html">modern</a> standards readily available. There's just a few points to make explicit.</p>
+	            <p>We're not making our own - all projects should adhere to the <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md">PSR-2</a> coding standard. There's just a few points to make explicit.</p>
 	            <ul>
-	                <li>Use <a href="http://weierophinney.net/matthew/archives/254-Why-PHP-Namespaces-Matter.html">PHP 5.3 namespaces</a> instead of <a href="http://framework.zend.com/manual/en/coding-standard.naming-conventions.html">pseudo-namespaces</a>.</li>
 	                <li>Organize your classes under a single component-level namespace. This namespace should be the same as your component's name, eg. the classes in <a href="http://github.com/xi-project/xi-collections">xi-collections</a> reside under <code>Xi\Collections</code>.</li>
 	                <li>For exceptions, <a href="http://framework.zend.com/wiki/display/ZFDEV2/Proposal+for+Exceptions+in+ZF2">create a component level marker interface</a>, then create concrete classes that implement the marker interface and preferably extend a <a href="http://www.php.net/manual/en/spl.exceptions.php">semantic PHP Exception type</a> instead of the plain <code>Exception</code> class.</li>
 	                <li>Do not define global functions and depend on them internally; the choice of which global functions to define should be for the component's user to make.</li>
@@ -180,7 +178,7 @@ layout: default
 	            <p><a href="LICENSE">This is how your LICENSE file should look.</a></p>
 
                 <h3 id="section-licensing-who">Wait, what? Who are these guys?</h3>
-                <p>The Xi project is not a legal entity, but the license's copyright statement has to reference at least one. We'd like Xi to be a community driven effort and not rest on corporate entities, so we used our actual names. The license states: <em><q>"Copyright (c) 2011, Mikko Forsström, Mikko Hirvonen, Eevert Saukkokoski"</q></em>. These are the names of three guys currently or formerly of <em>Soprano Digital</em> with intent to improve the state of PHP.</p>
+                <p>The Xi project is not a legal entity, but the license's copyright statement has to reference at least one. We'd like Xi to be a community driven effort and not rest on corporate entities, so we used our actual names. The license states: <em><q>"Copyright (c) 2012, Mikko Forsström, Mikko Hirvonen, Eevert Saukkokoski"</q></em>. These are the names of three guys currently or formerly of <em>Soprano Digital</em> with intent to improve the state of PHP.</p>
                 <p>The notation is merely symbolic; we represent the Xi project, and you aren't signing away anything you wouldn't expect to with a New BSD license.</p>
                 <p>That said, software licensing is not a simple beast, and none of us are legal experts. If you think there's something wrong with out licensing terms, contact us so we can sort it out.</p>
             </div>
